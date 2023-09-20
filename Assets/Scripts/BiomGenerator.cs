@@ -7,15 +7,31 @@ public class BiomGenerator : MonoBehaviour
     public GameObject[] biomPrefabs;
     public int mapSizeX;
     public int mapSizeY;
-    public float biomSize; // Размер каждого квадрата биома в метрах
-    private BiomInfo[,] biomInfoMap;
+    public float biomSize; // The size of each square of the biome
 
+    public BiomInfo[,] biomInfoMap; // public to access from other classes
 
     private GameObject[,] biomMap;
-    
+    private static BiomGenerator instance;
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
-    public void GenerateBiomMap()
+    public static void GenerateBiomMap()
+    {
+        if (instance == null)
+        {
+            Debug.LogError("BiomGenerator instance is not set!");
+            return;
+        }
+        
+
+        instance.GenerateMap();
+    }
+
+    private void GenerateMap()
     {
         biomInfoMap = new BiomInfo[mapSizeX, mapSizeY];
 
@@ -27,7 +43,7 @@ public class BiomGenerator : MonoBehaviour
 
                 Vector3 position = new Vector3(x * biomSize, y * biomSize, 0f);
 
-                // Создаем объект BiomInfo и сохраняем его в массиве biomInfoMap
+                // Create BiomInfo and save to biomInfoMap
                 BiomInfo biomInfo = new BiomInfo
                 {
                     biomPrefab = biomPrefab,
@@ -35,12 +51,12 @@ public class BiomGenerator : MonoBehaviour
                 };
 
                 biomInfoMap[x, y] = biomInfo;
-                
-                GameObject biomInstance = Instantiate(biomPrefab, position, Quaternion.identity);
-                Debug.Log($"Сохранено: Биом {biomPrefab.name} на позиции ({x}, {y})");
 
+                // Create object
+                GameObject biomInstance = Instantiate(biomPrefab, position, Quaternion.identity);
+                
+                Debug.Log($"Saved: {biomPrefab.name} to position ({x}, {y})");
             }
         }
     }
-
 }
