@@ -39,7 +39,7 @@ public class BiomGenerator : MonoBehaviour
         {
             for (int y = 0; y < mapSizeY; y++)
             {
-                GameObject biomPrefab = biomPrefabs[Random.Range(0, biomPrefabs.Length)];
+                GameObject biomPrefab = GetRandomBiomPrefab(); // create separate method
 
                 Vector3 position = new Vector3(x * biomSize, y * biomSize, 0f);
 
@@ -58,5 +58,15 @@ public class BiomGenerator : MonoBehaviour
                 Debug.Log($"Saved: {biomPrefab.name} to position ({x}, {y})");
             }
         }
+    }
+    private GameObject GetRandomBiomPrefab()
+    {
+        if (biomPrefabs.Length == 0)
+        {
+            Debug.LogError("No biomPrefabs assigned!");
+            return null;
+        }
+
+        return biomPrefabs[Random.Range(0, biomPrefabs.Length)];
     }
 }
