@@ -172,8 +172,8 @@ MonoBehaviour:
   - {fileID: 8408368550859354094, guid: 4f6326048c2337c43bdc3c6ce73791f1, type: 3}
   - {fileID: 791667770724039386, guid: e5b6f86cf330ea148ac8d91fa331fda1, type: 3}
   - {fileID: 6574338852523113114, guid: e290cff0b70182745940751a83086a69, type: 3}
-  mapSizeX: 4
-  mapSizeY: 4
+  mapSizeX: 5
+  mapSizeY: 5
   biomSize: 1.1
 --- !u!114 &375464306
 MonoBehaviour:
