@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+// Скрипт нужен для запуска GenerateBiomMap
 using UnityEngine;
 
 public class Test : MonoBehaviour

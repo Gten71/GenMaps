@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6294617595941031929}
   - component: {fileID: 1030164428823087390}
   m_Layer: 0
-  m_Name: Fist Biom
+  m_Name: FistBiom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

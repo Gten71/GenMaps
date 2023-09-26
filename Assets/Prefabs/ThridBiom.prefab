@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3464338544312415281}
   - component: {fileID: 826441799249916738}
   m_Layer: 0
-  m_Name: Thrid Biom
+  m_Name: ThridBiom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
